@@ -1,0 +1,31 @@
+### Git Log
+
+commit b979b675c4f0e8ead6e4aa89abdecd1d9a338730 (HEAD -> master, origin/master)
+Author: YEV\YevLocal <yev.berezovsky@gmail.com>
+Date:   Sun Nov 5 15:14:13 2023 -0500
+
+    Fixing minor bug : removed unnecessary check for number of items
+
+commit 2d36405d993890be4998ed6ef212200cb1743065
+Author: YEV\YevLocal <yev.berezovsky@gmail.com>
+Date:   Sun Nov 5 14:51:06 2023 -0500
+
+    Added more unit tests. Fixed broken unit tests
+
+commit bf965715b18363561f361e7e3c0e782727f2d892
+Author: YEV\YevLocal <yev.berezovsky@gmail.com>
+Date:   Sun Nov 5 14:40:13 2023 -0500
+
+    implementing unit tests
+
+commit ca3dcd074d1342cdebf1727e9076ff496755bd4d
+Author: YEV\YevLocal <yev.berezovsky@gmail.com>
+Date:   Sun Nov 5 14:37:51 2023 -0500
+
+    created unit tests
+
+commit 85c5309c5886195090d8555c995cfcdf3fb90cac
+Author: YEV\YevLocal <yev.berezovsky@gmail.com>
+Date:   Sun Nov 5 14:33:29 2023 -0500
+
+    Add implementation of CheckoutController, remove generated stub WeatherForecast
