@@ -57,7 +57,7 @@ namespace CheckoutAPI.Controllers
                     }
                     else
                     {
-                        return BadRequest($"Watch with ID {parsedId} is not found in the catalog.");
+                        return BadRequest($"Watch with ID {watchId} is not found in the catalog.");
                     }
                 }
                 else
