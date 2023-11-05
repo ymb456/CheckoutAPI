@@ -2,6 +2,14 @@
 
 This project is implemented in ASP.NET Core and exposes an endpoint for checkout functionality.
 
+## Deliverables
+
+- GitHub Repository: the solution is available on GitHub at [https://github.com/ymb456/CheckoutAPI](https://github.com/ymb456/CheckoutAPI).
+- Compressed solution is also available and attached to email (ZIP file)
+- README file (also available on GitHub)
+- Commit history(also available on GitHub)
+
+
 ## Endpoint
 
 The project exposes the following endpoint:
@@ -14,12 +22,6 @@ The expected input for the checkout endpoint is a JSON array of strings represen
 ### Expected Output
 
 The expected output is a JSON object containing the total price of the checkout.
-
-## Deliverables
-
-- Compressed solution (ZIP file)
-- README file (also available on GitHub)
-- Commit history
 
 ## Running the Application
 
@@ -36,9 +38,15 @@ The expected output is a JSON object containing the total price of the checkout.
 CheckoutAPI.exe
 
 
-The application will run on port 5001 by default. You can use the following `curl` command to test it:
+The application will run on port 5001 by default. You can use `curl.exe` 
 
+
+## Local Testing with cURL
+
+To test the application locally using cURL, you can use the following command:
 curl.exe -X POST "https://localhost:5001/checkout" -H "Content-Type: application/json" -d "[\"001\", \"002\", \"001\", \"004\", \"003\"]"
+
+
 
 
 #### Git Log history
