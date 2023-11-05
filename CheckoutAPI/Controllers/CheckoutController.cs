@@ -32,12 +32,8 @@ namespace CheckoutAPI.Controllers
         [HttpPost(Name = "checkout")]
         public IActionResult Checkout([FromBody] List<string> watchIds)
         {
-            if (watchIds.Count > 10)
-            {
-                // Creates a dictionary to store the count of each unique watch item present in the provided list of watch IDs.
-                return BadRequest("Exceeded the maximum allowed number of items in the request.");
-            }
 
+            // Creates a dictionary to store the count of each unique watch item present in the provided list of watch IDs.
             var watchCounts = new Dictionary<string, int>();
             foreach (var watchId in watchIds)
             {
