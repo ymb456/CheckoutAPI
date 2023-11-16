@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutAPI", "CheckoutAPI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutAPITests", "CheckoutAPITests\CheckoutAPITests.csproj", "{8F721424-BF02-4AEB-9892-F7D9C015832A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1B5E3A01-84CA-42B1-A3CA-993035FF2EA6}"
+	ProjectSection(SolutionItems) = preProject
+		GitLog.txt = GitLog.txt
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -2,12 +2,25 @@
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CheckoutAPI.Controllers;
+using Newtonsoft.Json;
+using System.Net;
+using System.Text;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.Hosting;
 
 namespace QuickBuyAPI.Controllers.Tests
 {
     [TestClass()]
     public class CheckoutControllerTests
     {
+
+        private static TestContext _testContext = null!;
+
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+            _testContext = testContext;
+        }
         [TestMethod()]
         public void CheckoutTest_ReturnsCorrectTotalPrice()
         {
@@ -124,5 +137,30 @@ namespace QuickBuyAPI.Controllers.Tests
             Assert.AreEqual("Watch with ID 005 is not found in the catalog.", result.Value);
         }
 
+        [TestMethod()]
+        public async Task CheckoutEndpoint_ReturnsCorrectTotalPrice()
+        {
+            // Arrange
+
+            Console.WriteLine(_testContext.TestName);
+
+            await using var factory = new WebApplicationFactory<CheckoutAPI.Program> ();
+            
+            using var client = factory.CreateClient();
+
+
+            var watchIds = new List<string> { "001", "002", "001", "004", "003" };
+            var content = new StringContent(JsonConvert.SerializeObject(watchIds), Encoding.UTF8, "application/json");
+
+            // Act
+            var response = await client.PostAsync("https://localhost:7248/checkout", content);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseObject = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(responseContent);
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.IsTrue(responseObject.ContainsKey("price"));
+            Assert.AreEqual(360m, responseObject["price"]);
+        }
     }
 }
