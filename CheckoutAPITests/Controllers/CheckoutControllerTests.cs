@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.Hosting;
+using CheckoutAPI.Services;
 
 namespace QuickBuyAPI.Controllers.Tests
 {
@@ -26,7 +27,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "001", "002", "001", "004", "003" };
 
             // Act
@@ -42,7 +44,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string>();
 
             // Act
@@ -59,7 +62,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "001" };
 
             // Act
@@ -76,7 +80,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "005" };
 
             // Act
@@ -92,7 +97,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "001", "001", "001" }; // Three Rolexes
 
             // Act
@@ -109,7 +115,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "003", "004" }; // A Swatch and a Casio
 
             // Act
@@ -126,7 +133,8 @@ namespace QuickBuyAPI.Controllers.Tests
         {
             // Arrange
             var logger = NullLogger<CheckoutController>.Instance;
-            var controller = new CheckoutController(logger);
+            var service = new CheckoutService(CheckoutAPI.Program.ConfigureWatchCatalog());
+            var controller = new CheckoutController(logger, service);
             var watchIds = new List<string> { "005" }; // Invalid watchId
 
             // Act
